@@ -1,13 +1,13 @@
 import {useEffect} from "react";
-import Server from "../utils/Server";
+import Server from "../main/Server";
 
 function checkAuth() {
     let token = sessionStorage.getItem('jwtToken');
     return (token != null && token !== '');
 }
+import React from 'react'
 
-export default function HomePage(props) {
-
+const Home = (props) => {
     useEffect(() => {
         Server()
             .get(`/match`)
@@ -16,6 +16,12 @@ export default function HomePage(props) {
             })
             .catch(err => {})
     }, []);
-
-    return (<div>Home</div>);
+    return (
+        <div>
+            HomePage
+        </div>
+    )
 }
+
+export default Home
+
